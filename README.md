@@ -2,7 +2,7 @@
 
 # vue-cli-uniapp
 
-基于uniapp cli模式集成最佳实践脚手架, ui库使用 [uview](https://v1.uviewui.com/)(已配置全自动按需导入), css 框架使用 [windicss](https://windicss.org/)(下一代css框架), 请求使用[axios](http://www.axios-js.com/)的方式(添加了uniapp适配器支持) 路由使用 [uni-simple-router](https://hhyang.cn/v2/)(同vue-router的api无须重新阅读文档,配置了路由自动生成) 
+基于uniapp cli模式集成最佳实践脚手架, ui库使用 [uview](https://v1.uviewui.com/)(已配置全自动按需导入), css 框架使用 [windicss](https://windicss.org/)(下一代css框架), 请求使用[axios](http://www.axios-js.com/)的方式(添加了uniapp适配器支持) 路由使用 [uni-simple-router](https://hhyang.cn/v2/)(同vue-router的api无须重新阅读文档,配置了路由自动生成)
 
 <!-- PROJECT SHIELDS -->
 
@@ -193,3 +193,6 @@ qq:523469508 wx: viarotel
 [license-url]: https://github.com/viarotel/vue-cli-uniapp/blob/main/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/viarotel
+
+
+#### excel 文件预览

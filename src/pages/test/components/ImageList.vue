@@ -4,7 +4,7 @@
       ref="scrollView"
       class="scroll-view_H"
       scroll-x="true"
-      :scroll-into-view="'tab' + currentIndex"
+      :scroll-into-view="'tab' + tabId"
       scroll-with-animation
       :scroll-left="300"
       show-scrollbar
@@ -12,22 +12,24 @@
     >
       <view
         v-for="(item, index) in imgList"
-        :id="'tab' + index"
+        :id="'tab' + tabId"
         :key="index"
         class="scroll-view-item_H"
       >
         <view class="img-container">
           <image
-            :class="{ active: index === currentIndex }"
+            :class="{ active: index === current }"
             class="img-item"
             mode="aspectFill"
             :src="item"
             @click="handleClick(index)"
           >
           </image>
-
           <!-- 图片蒙版 -->
-          <view v-if="index !== currentIndex" class="mask"></view>
+          <view
+            v-if="index !== current"
+            class="mask"
+          ></view>
         </view>
       </view>
     </scroll-view>
@@ -35,10 +37,12 @@
 </template>
 
 <script>
-import { EventBus } from '@/utils/eventBus.js';
-
 export default {
   props: {
+    current: {
+      type: Number,
+      default: 0,
+    },
     imgList: {
       type: Array,
       default: () => [],
@@ -46,25 +50,33 @@ export default {
   },
   data() {
     return {
-      currentIndex: 0, // 对应 view 的id
+      tabId: '',
+      scrollView: null,
       old: {
         scrollTop: 0,
       },
     };
   },
   mounted() {
-    EventBus.$on('change', (v) => {
-      console.log(v, '兄弟组件通信11');
-      this.currentIndex = v;
-    });
+    this.test();
   },
   methods: {
     scroll(e) {
+      console.log(e);
       this.old.scrollTop = e.detail.scrollTop;
     },
     handleClick(index) {
-      this.currentIndex = index;
-      EventBus.$emit('current-change', index);
+      this.$emit('change', index);
+      this.tabId = this.imgList[index];
+    },
+    test() {
+      this.scrollView = this.$refs.scrollView;
+      setTimeout(() => {
+        console.log('滚动触发');
+        this.tabId = this.imgList[3];
+        console.log(this.scrollView, '获取滚动元素');
+        this.scrollView.scrollIntoView(`tab${this.tabId}`, 300); // 300 是滚动动画的时长
+      }, 3000);
     },
   },
 };

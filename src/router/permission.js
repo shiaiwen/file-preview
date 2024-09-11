@@ -5,6 +5,7 @@ export default (router) => {
   const whiteList = [
     '/pages/account/login/index',
     '/pages/img-preview/index',
+    '/pages/test/index',
 
   ]; // no redirect whitelist
 

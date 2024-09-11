@@ -9,10 +9,18 @@
 		"backgroundColor": "#f1f1f1"
 	},
 	"pages": [
+
 		{
 			"path": "pages/img-preview/index",
 			"style": {
 				"navigationBarTitleText": "图片预览"
+			}
+		},
+
+		{
+			"path": "pages/test/index",
+			"style": {
+				"navigationBarTitleText": "测试页"
 			}
 		},
 		{
